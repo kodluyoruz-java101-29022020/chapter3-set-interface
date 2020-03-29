@@ -65,9 +65,9 @@ public class Main {
 		
 		Set<Book> books = new HashSet<Book>();
 		books.add(new Book("Java Book", "Penguen Yayınevi", 2019, 500, 50));
-		books.add(new Book("Python Book", "Panda Yayınevi", 2012, 250, 45.5));
+		books.add(new Book("Python Book", "Panda Yayınevi", 2019, 250, 45.5));
 		books.add(new Book("C# Book", "Elma Yayınevi", 2020, 660, 70));
-		books.add(new Book("Ruby Book", "Beyaz Balina Yayınevi", 2014, 450, 28));
+		books.add(new Book("Ruby Book", "Beyaz Balina Yayınevi", 2019, 450, 28));
 		books.add(new Book("Go Book", "Kanarya Yayınevi", 2017, 420, 80));
 		books.add(book1);
 		books.add(book2);
@@ -95,11 +95,11 @@ public class Main {
 		
 		Set<Book> books = new TreeSet<Book>();
 		books.add(new Book("Java Book", "Penguen Yayınevi", 2019, 500, 50));
-		books.add(new Book("Python Book", "Panda Yayınevi", 2012, 250, 45.5));
+		books.add(new Book("Python Book", "Panda Yayınevi", 2019, 250, 45.5));
 		books.add(new Book("C# Book", "Elma Yayınevi", 2020, 660, 70));
 		books.add(new Book("Ruby Book", "Beyaz Balina Yayınevi", 2014, 450, 28));
 		books.add(new Book("Go Book", "Kanarya Yayınevi", 2017, 420, 80));
-		books.add(new Book("Javascript Book", "ABC Yayınevi", 2010, 300, 20));
+		books.add(new Book("Javascript Book", "ABC Yayınevi", 2019, 300, 20));
 		books.add(new Book("Javascript Book", "ABC Yayınevi", 2010, 300, 20));
 		books.add(new Book("Javascript Book", "ABC Yayınevi", 2010, 300, 20));
 		
@@ -107,21 +107,28 @@ public class Main {
 		printAll(books);
 		
 		
+		
 		BookComparatorByPublisher comparatorByPublisher = new BookComparatorByPublisher();
 		
 		Set<Book> sortedBooksByPublisher = new TreeSet<Book>(comparatorByPublisher);
 		
-		sortedBooksByPublisher.add(new Book("Java Book", "Penguen Yayınevi", 2019, 500, 50));
-		sortedBooksByPublisher.add(new Book("Python Book", "Panda Yayınevi", 2012, 250, 45.5));
-		sortedBooksByPublisher.add(new Book("C# Book", "Elma Yayınevi", 2020, 660, 70));
-		sortedBooksByPublisher.add(new Book("Ruby Book", "Beyaz Balina Yayınevi", 2014, 450, 28));
-		sortedBooksByPublisher.add(new Book("Go Book", "Kanarya Yayınevi", 2017, 420, 80));
-		sortedBooksByPublisher.add(new Book("Javascript Book", "ABC Yayınevi", 2010, 300, 20));
-		sortedBooksByPublisher.add(new Book("Javascript Book", "ABC Yayınevi", 2010, 300, 20));
-		sortedBooksByPublisher.add(new Book("Javascript Book", "ABC Yayınevi", 2010, 300, 20));
+		sortedBooksByPublisher.addAll(books);
 		
-		System.out.println("Comparator ile sıralanmış kitap listesi");
+		System.out.println("Yayınevi ismine göre sıralanmış kitap listesi");
 		printAll(sortedBooksByPublisher);
+		
+		
+		
+		
+		BookComparatorByPublishYear comparatorByPublisheryear = new BookComparatorByPublishYear();
+		
+		Set<Book> sortedBooksByPublishyear = new TreeSet<Book>(comparatorByPublisheryear);
+		
+		sortedBooksByPublishyear.addAll(sortedBooksByPublisher);
+		
+		
+		System.out.println("Yayın yılı bilgisine göre sıralanmış kitap listesi");
+		printAll(sortedBooksByPublishyear);
 		
 	}
 
